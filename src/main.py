@@ -1,9 +1,13 @@
 # main.py
+import sys
 
-def main(controller_module):
-    if controller_module:
+
+def main(app_module):
+    if app_module:
+        print(app_module)
+        print(dir(sys.modules[__name__]))
         # Run the controller
-        controller_module.run()
+        app_module.run()
 
 
 if __name__ == "__main__":

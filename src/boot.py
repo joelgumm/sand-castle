@@ -1,17 +1,19 @@
 # Import the main module to start your application
-from main import main
+import main
+
 
 # boot.py
 
-selected_controller = 'dot_matrix.scrolling_text'
+selected_app = 'moisture_indicator'
 
 try:
     # Import the selected controller
-    controller_module = __import__('controllers.' + selected_controller, None, None, [selected_controller])
+    app_module = __import__('apps.' + selected_app, None, None, [selected_app])
+
 except ImportError:
-    print(f"Controller '{selected_controller}' not found.")
-    controller_module = None
+    print(f"App '{selected_app}' not found.")
+    app_module = None
 
 
 # Call the main function to execute the controller
-main(controller_module)
+main.main(app_module)
